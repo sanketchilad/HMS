@@ -1,0 +1,17 @@
+package com.app.services;
+
+import java.util.List;
+
+import com.app.entity.Patient;
+import com.app.entity.Person;
+
+public interface PatientService 
+{
+	List<Patient> getAllPatients();
+	public String addPatient(Patient addpatient);
+	public String deletePatient(Long id);
+	Patient updatePatient(Patient patient,Long id);
+	
+	
+
+}

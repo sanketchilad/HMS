@@ -1,0 +1,7 @@
+package com.app.dao;
+
+@Repository
+public class AppointmentDao
+{
+
+}

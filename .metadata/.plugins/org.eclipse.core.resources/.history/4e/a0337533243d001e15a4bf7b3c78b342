@@ -1,0 +1,9 @@
+package com.app.services;
+
+public class AppointmentService 
+{
+	public String addAppointment(Appointment ap) {
+		return dao.addAppointment(ap);
+	}
+
+}

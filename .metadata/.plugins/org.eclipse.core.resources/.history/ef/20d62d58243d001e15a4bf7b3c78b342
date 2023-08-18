@@ -1,0 +1,15 @@
+package com.app.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AppointmentDao
+{
+	public String addAppointment(Appointment ap) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		session.save(ap);
+		tr.commit();
+		return "Appointment done";
+	}
+}

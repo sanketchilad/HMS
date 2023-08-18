@@ -1,0 +1,60 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="person")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
+public class Person 
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="person_id")
+	private long person_id;
+	
+	@Column(name="first_name", length=40)
+	private String first_name;
+	
+	@Column(name="last_name", length=40)
+	private String last_name;
+	
+	@Column(name="date_of_birth")
+	private LocalDate date_of_birth;
+	
+	@Column(name="gender", length=20)
+	private String gender;
+	
+	@Column(name="contact", length=13)
+	private long contact;
+	
+	@Column(name="email", length=40)
+	private String email;
+	
+	@Column(name="address", length=100)
+	private String address;
+	
+	@Column(name="city", length=40)
+	private String city;
+	
+	@Column(name="state", length=40)
+	private String state;
+	
+	@Column(name="blood_group", length=40)
+	private String blood_group;
+}

@@ -1,0 +1,19 @@
+package com.app.dao;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
+
+import com.app.entity.Appointment;
+
+@Repository
+public class AppointmentDao
+{
+	public String addAppointment(Appointment ap) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		session.save(ap);
+		tr.commit();
+		return "Appointment done";
+	}
+}

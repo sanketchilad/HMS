@@ -1,0 +1,62 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="patient")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
+public class Patient extends Person
+{	
+	@OneToMany(mappedBy="patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Appointment> appointments = new ArrayList<>();
+	
+	public void addAppointment(Appointment a)
+	{
+		appointments.add(a);
+		a.setPatient(this);
+		
+	}
+	public void removeProject(Appointment a)
+	{
+		appointments.remove(a);
+		a.setPatient(null);
+	}
+
+	@Column(name="admission_date")
+	private LocalDate admission_date;
+	
+	@Column(name="discharge_date")
+	private LocalDate discharge_date;
+	
+	@Column(name="medical_history", length=200)
+	private String medical_history;
+	
+	@Column(name="current_medication", length=40)
+	private String current_medication;
+	
+//	@Column(name="doctor_id") //Use this as foreign key from doctor table
+//	private long doctor_id;
+	}

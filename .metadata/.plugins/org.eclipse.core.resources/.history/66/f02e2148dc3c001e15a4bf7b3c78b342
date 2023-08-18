@@ -1,0 +1,66 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+//
+////@Entity
+////@Table(name="person")
+////@NoArgsConstructor
+////@AllArgsConstructor
+////@Getter
+////@Setter
+
+public class Person extends BaseEntity
+{
+
+	
+	@Column(name="first_name", length=40)
+	private String first_name;
+	
+	@Column(name="last_name", length=40)
+	private String last_name;
+	
+	@Column(name="date_of_birth")
+	private LocalDate date_of_birth;
+	
+	@Column(name="gender", length=20)
+	private String gender;
+	
+	@Column(name="contact", length=13)
+	private long contact;
+	
+	@Column(name="email", length=40)
+	private String email;
+	
+	@Column(nullable=false, length=40)
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private String password;
+	
+	@Column(name="address", length=100)
+	private String address;
+	
+	@Column(name="city", length=40)
+	private String city;
+	
+	@Column(name="state", length=40)
+	private String state;
+	
+	@Column(name="blood_group", length=40)
+	private String blood_group;
+}

@@ -1,0 +1,20 @@
+package com.app.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.dao.PersonDao;
+import com.app.entity.Person;
+
+public class PersonServiceImpl implements PersonService 
+{
+	@Autowired
+	private PersonDao persondao;
+	@Override
+	public List<Person> getAllPersons() {
+		
+		return persondao.findAll();
+	}
+
+}

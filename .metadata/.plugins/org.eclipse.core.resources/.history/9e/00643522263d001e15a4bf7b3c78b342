@@ -1,0 +1,17 @@
+package com.app.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.dao.AppointmentDao;
+import com.app.entity.Appointment;
+
+public class AppointmentServiceImpl implements AppointmentService
+{
+	@Autowired
+	private AppointmentDao dao;
+	
+	public String addAppointment(Appointment ap) {
+		return dao.addAppointment(ap);
+	}
+
+}

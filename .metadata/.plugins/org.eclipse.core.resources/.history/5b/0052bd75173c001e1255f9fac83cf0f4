@@ -1,0 +1,11 @@
+package com.app.entity;
+
+public class PatientProfile 
+{
+	@Entity
+	@Id
+	
+
+	
+
+}

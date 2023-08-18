@@ -1,0 +1,14 @@
+package com.app.services;
+
+import com.app.entity.Appointment;
+
+public class AppointmentService 
+{
+	@Autowired
+	private AppointmentDao dao;
+	
+	public String addAppointment(Appointment ap) {
+		return dao.addAppointment(ap);
+	}
+
+}

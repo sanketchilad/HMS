@@ -1,0 +1,44 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="patient")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
+public class Patient 
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="patient_id")
+	private long patient_id;
+	
+	
+	@Column(name="admission_date")
+	private LocalDate admission_date;
+	
+	@Column(name="discharge_date")
+	private LocalDate discharge_date;
+	
+	@Column(name="medical_history", length=20)
+	private String medical_history;
+	
+	
+	@Column(name="current_medication", length=40)
+	private String current_medication;
+	}

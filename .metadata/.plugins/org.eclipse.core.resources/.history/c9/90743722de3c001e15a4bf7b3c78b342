@@ -1,0 +1,53 @@
+package com.app.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.modelmapper.*;
+
+import com.app.dao.PersonDao;
+import com.app.entity.Person;
+
+
+
+@Service
+@Transactional
+public class PatientServiceImpl implements PatientService 
+{
+	@Autowired
+	private PersonDao persondao;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	@Override
+	public List<Patient> getAllPatients() {
+		
+		return persondao.findAll();
+	}
+
+	@Override
+	public String addPatient(Patient addperson) {
+		
+		persondao.save(addperson);
+		return "person is added";
+	}
+
+	@Override
+	public String deletePatient(Long id) {
+		
+		return "Patient is Deleted";
+	}
+
+	@Override
+	public Person updatePatient(Patient patient, Long id) {
+		
+		Patient patient2 = mapper.map(patient,Patient.class);
+		patient2.setId(id);
+		Patient patient3 = persondao.save(patient2);
+		return mapper.map(patient3, Patient.class);
+	}
+
+}

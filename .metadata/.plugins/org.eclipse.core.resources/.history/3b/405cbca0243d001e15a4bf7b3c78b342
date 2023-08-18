@@ -1,0 +1,20 @@
+package com.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.app.entity.Appointment;
+import com.app.services.AppointmentService;
+
+public class AppointmentController {
+	
+	@Autowired
+	private AppointmentService service;
+	
+	@PostMapping("/addappo")
+	public String addAppointment(@RequestBody Appointment ap) {
+		return service.addAppointment(ap);
+	}
+
+}
