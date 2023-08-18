@@ -1,0 +1,23 @@
+package com.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.entity.Appointment;
+import com.app.services.AppointmentService;
+
+@RestController
+public class AppointmentController {
+	
+	@Autowired
+	private AppointmentService service;
+	
+	@PostMapping("/addappo")
+	public Appointment addAppointment(@RequestBody Appointment ap)
+	{
+		return service.addAppointment(ap);
+	}
+
+}
