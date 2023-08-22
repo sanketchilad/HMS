@@ -1,0 +1,10 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+
+public class Admin extends Person
+{
+	
+}

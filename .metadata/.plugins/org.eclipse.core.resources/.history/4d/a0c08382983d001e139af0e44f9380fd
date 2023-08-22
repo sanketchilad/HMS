@@ -1,0 +1,28 @@
+package com.app.services;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.AppointmentDao;
+import com.app.dto.AppointmentDto;
+import com.app.entity.Appointment;
+
+@Service
+@Transactional
+public class AppointmentServiceImpl implements AppointmentService
+{
+	@Autowired
+	private AppointmentDao appointmentdao;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	public String addAppointment(AppointmentDto addappointment) {
+		Appointment appointment = mapper.map(addappointment,Appointment.class);		
+		appointmentdao.save(addappointment);
+				return "appointment added";
+	}
+
+}

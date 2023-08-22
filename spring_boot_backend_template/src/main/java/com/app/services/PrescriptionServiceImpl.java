@@ -39,7 +39,7 @@ public class PrescriptionServiceImpl implements PrescriptionService
 
 	@Override
 	public String deletePrescription(Long id) {
-		// TODO Auto-generated method stub
+		prescriptiondao.deleteById(id);
 		return "Prescription is Deleted";
 	}
 

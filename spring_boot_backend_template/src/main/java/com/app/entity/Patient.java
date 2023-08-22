@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,7 @@ import lombok.Setter;
 public class Patient extends Person
 {	
 	@OneToMany(mappedBy="patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<Appointment> appointments = new ArrayList<>();
 	
 	public void addAppointment(Appointment a)
@@ -44,6 +47,24 @@ public class Patient extends Person
 		appointments.remove(a);
 		a.setPatient(null);
 	}
+	
+	
+	@OneToMany(mappedBy="patient", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private List<Bill> bills = new ArrayList<>();
+	
+	public void addBills(Bill b)
+	{
+		bills.add(b);
+		b.setPatient(this);
+		
+	}
+	public void removeBills(Bill b)
+	{
+		bills.remove(b);
+		b.setPatient(null);
+	}
+	
 
 	@Column(name="admission_date")
 	private LocalDate admission_date;
@@ -56,6 +77,8 @@ public class Patient extends Person
 	
 	@Column(name="current_medication", length=40)
 	private String current_medication;
+	
+	
 	
 //	@Column(name="doctor_id") //Use this as foreign key from doctor table
 //	private long doctor_id;

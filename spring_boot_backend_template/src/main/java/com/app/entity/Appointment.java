@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -25,11 +26,13 @@ import lombok.ToString;
 @ToString
 public class Appointment extends BaseEntity 
 {
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name= "patient_id", nullable=false)
 	private Patient patient;
 	
-	@ManyToOne(fetch= FetchType.LAZY)
+	//@ManyToOne(fetch= FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name= "doctor_id", nullable=false)
 	private Doctor doctor;
 	
@@ -38,9 +41,9 @@ public class Appointment extends BaseEntity
 	
 	private int fees;
 	
-	
-	
-	//private Priscription p;
+//	@OneToOne(fetch= FetchType.LAZY)
+//	@JoinColumn(name= "prescription_id", nullable=false)
+//	private Prescription prescription;
 	
 	
 	

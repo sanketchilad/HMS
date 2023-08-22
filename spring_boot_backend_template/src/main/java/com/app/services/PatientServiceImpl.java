@@ -41,8 +41,9 @@ public class PatientServiceImpl implements PatientService
 	}
 
 	@Override
-	public String deletePatient(Long id) {
-		
+	public String deletePatient(Long id) 
+	{
+		patientdao.deleteById(id);
 		return "Patient is Deleted";
 	}
 

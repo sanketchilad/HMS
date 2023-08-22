@@ -22,10 +22,10 @@ public class AddPatientDto
 
 	@JsonProperty(access = Access.READ_ONLY) // used during serialization
 	private Long id;
-	@NotBlank
-	private String firstName;
-	@NotBlank
-	private String lastName;
+	
+	private String first_name;
+	
+	private String last_name;
 	
 	
 	private LocalDate date_of_birth;
@@ -47,6 +47,6 @@ public class AddPatientDto
 	
 	private String blood_group;
 	
-	private String current_medication;
+	//private String current_medication;
 
 }

@@ -1,0 +1,9 @@
+//package com.app.dto;
+//
+//public class AppointmentDto 
+//{
+//	@JsonProperty(access = Access.READ_ONLY)
+//	private
+//	
+//
+//}

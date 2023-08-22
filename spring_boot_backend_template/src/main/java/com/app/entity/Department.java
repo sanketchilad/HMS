@@ -32,9 +32,6 @@ public class Department extends BaseEntity {
 	@Column(length = 225)
 	private String Description;
 	
-	@Enumerated(EnumType.STRING) // col : varchar => enum constant name
-	@Column(length = 30)
-	private SpecType specialization;
 	
 	
 	@Column(name = "dept_name", length = 40, unique = true)
@@ -49,26 +46,6 @@ public class Department extends BaseEntity {
 	//@JsonIgnoreProperties 
 	private List<Doctor> docs = new ArrayList<>();
 	
-	
-	
-	
-	
-	
-	@OneToMany(mappedBy = "dept", 
-			cascade = CascadeType.ALL, 
-			orphanRemoval = true /* , fetch = FetchType.EAGER */ )
-	private List<Nurse> Nurses= new ArrayList<>();
-
-	
-	public void addEmployee(Nurse n) {
-		Nurses.add(n);// dept --> emp
-		n.setDept(this);// emp --> dept
-	}
-	public void removeEmployee(Nurse n) {
-		Nurses.remove(n);
-		n.setDept(null);
-	}
-	
 	public void addDoctor(Doctor d) {
 		docs.add(d);// dept --> emp
 		d.setDept(this);// emp --> dept
@@ -77,5 +54,23 @@ public class Department extends BaseEntity {
 		docs.remove(d);
 		d.setDept(null);
 	}
+	
+	
+//	
+//	@OneToMany(mappedBy = "dept", 
+//			cascade = CascadeType.ALL, 
+//			orphanRemoval = true /* , fetch = FetchType.EAGER */ )
+//	private List<Nurse> Nurses= new ArrayList<>();
+//
+//	
+//	public void addNurse(Nurse n) {
+//		Nurses.add(n);// dept --> emp
+//		n.setDept(this);// emp --> dept
+//	}
+//	public void removeNurse(Nurse n) {
+//		Nurses.remove(n);
+//		n.setDept(null);
+//	}
+
 
 }

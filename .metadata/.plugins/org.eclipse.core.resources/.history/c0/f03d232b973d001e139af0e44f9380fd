@@ -1,0 +1,21 @@
+package com.app.dto;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+
+public class AppointmentDto 
+{
+	@JsonProperty(access = Access.READ_ONLY)
+	private Long id;
+	
+	private long patient_id;
+	
+	private long doctor_id;
+		
+	private LocalDate date ;
+	
+	private int fees;
+	
+
+}

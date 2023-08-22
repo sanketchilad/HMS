@@ -41,7 +41,7 @@ public class Doctor extends Person
 	@Column(length = 30)
 	private String license_no;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)//MERGE : NEW n INTERESTING !!!!!
+	@ManyToOne//(fetch = FetchType.LAZY,cascade = CascadeType.MERGE) //MERGE : NEW n INTERESTING !!!!!
 	@JoinColumn(name = "department_id") // Optional BUT reco , to specify the name of FK col.
 	private Department dept;
 	
@@ -69,9 +69,6 @@ public class Doctor extends Person
 		a.setDoctor(null);
 	}
 
-	
-	//@ManyToMany(mappedBy = "emps")
-	//private List<Patient> patient = new ArrayList<>();
 	
 	
 	
